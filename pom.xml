@@ -15,8 +15,33 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<resource.delimiter>${}</resource.delimiter>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<aym.env>dev</aym.env>
+				<environment>dev</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<aym.env>prod</aym.env>
+				<environment>prod</environment>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencies>
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -55,33 +80,14 @@
 								</resource>
 							</resources>
 						</configuration>
-
 					</execution>
 				</executions>
-
 			</plugin>
 		</plugins>
 
 		<finalName>cactus</finalName>
 	</build>
-	<!--<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</repository>
-	</repositories>-->
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-milestones</id>
